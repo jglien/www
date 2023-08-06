@@ -14,5 +14,5 @@ jobs:
         with:
           node-version: 18
           cache: pnpm
-      - uses: pnpm install --frozen-lockfile
+      - run: pnpm install --frozen-lockfile
       - run: pnpm sst diff --stage 'prod'

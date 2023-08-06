@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 18
           cache: pnpm
-      - uses: pnpm install --frozen-lockfile
+      - run: pnpm install --frozen-lockfile
       - uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-region: ${{ secrets.AWS_REGION }}
