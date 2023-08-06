@@ -1,0 +1,14 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <div class="flex flex-auto flex-col justify-center mx-auto max-w-7xl gap-6 p-5 text-sm font-light">
+    <div class="bg-white dark:bg-gray-900 rounded-2xl">
+      <div class="p-6 prose dark:prose-invert prose-img:rounded-lg">
+        <slot />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

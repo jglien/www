@@ -24,3 +24,4 @@ tmp/
 
 .sst/
 .build/
+cdk.context.json
