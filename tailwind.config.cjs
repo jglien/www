@@ -2,7 +2,6 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  darkMode: "class",
   theme: {
     fontSize: {
       xs: [
@@ -86,7 +85,6 @@ module.exports = {
     },
     extend: {
       colors: {
-        black:"#222222",
         "accent": {
           "50": "#E5E5FF",
           "100": "#CCCCFF",
