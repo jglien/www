@@ -16,8 +16,7 @@
     "@astrolib/seo": "^0.3.0",
     "astro": "^2.10.1",
     "astro-compress": "^1.0.8",
-    "tailwindcss": "^3.0.24",
-    "astro-boilerplate-components": "^1.0.10"
+    "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",

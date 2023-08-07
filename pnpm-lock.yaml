@@ -20,9 +20,6 @@ dependencies:
   astro:
     specifier: ^2.10.1
     version: 2.10.1
-  astro-boilerplate-components:
-    specifier: ^1.0.10
-    version: 1.0.10(astro@2.10.1)(date-fns@2.30.0)(react@18.2.0)
   astro-compress:
     specifier: ^1.0.8
     version: 1.0.8
@@ -1532,13 +1529,6 @@ packages:
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/plugin-syntax-jsx': 7.22.5(@babel/core@7.22.9)
       '@babel/types': 7.22.5
-    dev: false
-
-  /@babel/runtime@7.22.6:
-    resolution: {integrity: sha512-wDb5pWm4WDdF6LFUde3Jl8WzPA+3ZbxYqkC6xAXuD3irdEHN1k0NfTRrJD8ZD378SJ61miMLCqIOXYhd8x+AJQ==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      regenerator-runtime: 0.13.11
     dev: false
 
   /@babel/template@7.22.5:
@@ -3348,18 +3338,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /astro-boilerplate-components@1.0.10(astro@2.10.1)(date-fns@2.30.0)(react@18.2.0):
-    resolution: {integrity: sha512-8D7BWLVsKZYYpo3wIWOmapCoHaOJays+gwEA4NSBVBcTImZa8gvIVz8bGmlDgDvs8WZxRZEDWJjmkhZu/LscIA==}
-    peerDependencies:
-      astro: 1.7.2
-      date-fns: ^2.28.0
-      react: ^18.1.0
-    dependencies:
-      astro: 2.10.1
-      date-fns: 2.30.0
-      react: 18.2.0
-    dev: false
-
   /astro-compress@1.0.8:
     resolution: {integrity: sha512-fH/2V8MedMs8QwS69JBQNhT9Ms0zIITfWdJT5Pe1vKsINmfgSwxZTlJLVvL6FuxLwqNXFpo9imQKpS/oGjKSSw==}
     dependencies:
@@ -4236,13 +4214,6 @@ packages:
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
     dependencies:
       css-tree: 2.2.1
-    dev: false
-
-  /date-fns@2.30.0:
-    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
-    engines: {node: '>=0.11'}
-    dependencies:
-      '@babel/runtime': 7.22.6
     dev: false
 
   /debounce-fn@4.0.0:
@@ -5834,6 +5805,7 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+    dev: true
 
   /lower-case@2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
@@ -7114,6 +7086,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: true
 
   /read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
@@ -7179,10 +7152,6 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
-
-  /regenerator-runtime@0.13.11:
-    resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
-    dev: false
 
   /rehype-parse@8.0.4:
     resolution: {integrity: sha512-MJJKONunHjoTh4kc3dsM1v3C9kGrrxvA3U8PxZlP2SjH8RNUSrb+lF7Y0KVaUDnGH2QZ5vAn7ulkiajM9ifuqg==}
