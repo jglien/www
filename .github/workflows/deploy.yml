@@ -29,4 +29,4 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/gh-actions
           role-session-name: JohnWww_${{ github.run_id }}_${{ github.run_attempt }}
-      - run: pnpm sst:deploy --stage 'prod'
+      - run: pnpm sst deploy --stage 'prod'
