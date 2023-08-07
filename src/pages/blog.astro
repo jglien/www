@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const posts = await Astro.glob("./posts/*.{md,mdx}");
+---
+
+<BaseLayout>
+  <section>
+        <div class="flex flex-auto mx-auto max-w-xl gap-6 mt-3 text-sm font-light">
+          {
+            posts.map((p) => (
+              <div class="items-center text-neutral-500">
+                <p class="text-black dark:text-white">{p.frontmatter.title}</p>
+                <p class="text-neutral-400 dark:text-neutral-400">{p.frontmatter.date.split("T")[0]}</p>
+                <p class="text-neutral-400 dark:text-neutral-400">{p.frontmatter.description}</p>
+                <a href={p.url} class="text-xs underline hover:no-underline duration-200">Read more</a>
+                <p class="text-neutral-400 dark:text-neutral-400">{p.content}</p>
+              </div>
+            ))
+          }
+        </div>
+  </section>
+</BaseLayout>

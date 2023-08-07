@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import { AstroSeo } from "@astrolib/seo";
+---
+
+<!---
+Use AstroSeo in all the pages you want different Seo than the index page
+-->
+<AstroSeo
+  title="John G Lien"
+  description="Personal site of John G Lien"
+/>
+<BaseLayout>
+  <Hero />
+  <div class="mx-auto max-w-xl">
+      <div class="mt-8 text-sm font-light">
+        <p class="text-black dark:text-white">About</p>
+        <div class="text-neutral-500 dark:text-neutral-400 space-y-3 mt-3">
+          <p>
+            Hello! I write software for a living. I specialize in cloud infrastructure and automation.
+          </p>
+        </div>
+    </div>
+  </div>
+</BaseLayout>

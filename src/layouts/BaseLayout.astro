@@ -1,0 +1,15 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<html lang="en" class="dark">
+  <head>
+    <BaseHead />
+  </head>
+
+  <body class="bg-white dark:bg-black">
+    <Navbar />
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,39 @@
+---
+import { contact } from "../constants";
+---
+
+<section>
+  <div class="mx-auto max-w-xl px-8 py-4">
+    <div class="md:flex md:items-center md:justify-between md:space-x-5">
+      <div class="flex items-center space-x-5">
+        <div class="flex-shrink-0">
+          <div class="relative">
+            <img
+              class="h-16 w-16 lg:h-24 lg:w-24 rounded-full border border-white/10"
+              src="/images/avatar.jpg"
+              alt="image"
+            />
+            <span
+              class="absolute inset-0 rounded-full shadow-inner"
+              aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="pt-1.5">
+          <h1 class="lg:text-xl text-black dark:text-white">
+            John Gregory Lien
+          </h1>
+          <p class="text-sm font-light text-neutral-500">
+            BUILD IT. BETTER
+          </p>
+          { contact && <p>
+            {contact.map((c) => <a
+              class="inline-block text-xs underline hover:no-underline duration-200 mr-2 dark:text-white"
+              target="_blank"
+              href={c.link}>{c.title}</a>)}
+          </p> }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

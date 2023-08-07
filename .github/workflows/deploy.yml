@@ -1,0 +1,32 @@
+name: Deployment Pipeline
+
+on:
+  push:
+    branches:
+      - main
+concurrency: prod
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      packages: read
+      actions: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/gh-actions
+          role-session-name: JohnWww_${{ github.run_id }}_${{ github.run_attempt }}
+      - run: pnpm sst:deploy --stage 'prod'
