@@ -3,12 +3,18 @@ import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout title={frontmatter.title} >
   <div class="flex-col justify-center mx-auto max-w-7xl gap-6 py-5 px-2 text-sm font-light">
     <div class="bg-gray-100 dark:bg-gray-900 rounded-2xl">
-      <div class="p-6 prose dark:prose-invert prose-img:rounded-lg">
+      <div class="cust-markdown p-6 prose dark:prose-invert prose-img:rounded-lg">
         <slot />
       </div>
     </div>
   </div>
 </BaseLayout>
+
+<style>
+  .cust-markdown {
+    font-family: "system-ui";
+  }
+</style>

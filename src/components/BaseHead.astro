@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+const { title } = Astro.props;
 ---
 
 <meta charset="utf-8" />
@@ -18,9 +20,4 @@
 <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="manifest" href="/favicons/site.webmanifest">
 
-<meta name="msapplication-TileColor" content="#1b1d20" />
-<meta name="theme-color" content="#1b1d20" />
-
-<!-- Inter Font: https://rsms.me/inter/ -->
-<link rel="preconnect" href="https://rsms.me/" />
-<link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+<title>{title}</title>
