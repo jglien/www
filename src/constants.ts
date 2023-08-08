@@ -16,4 +16,4 @@ export const contact: Contact[] = [
     link: "https://github.com/jglien",
     title: "GitHub",
   },
-]
+];

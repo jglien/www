@@ -1,0 +1,11 @@
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Arimo Nerd Font";
+    src: url(/fonts/ArimoNerdFont-Regular.ttf);
+  }
+}
