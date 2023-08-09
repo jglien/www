@@ -6,6 +6,20 @@ module.exports = {
     fontFamily: {
       sans: ['"Arimo Nerd Font"', ...defaultTheme.fontFamily.sans],
     },
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            'code::before': {
+              content: '""'
+            },
+            'code::after': {
+              content: '""'
+            }
+          }
+        }
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),
