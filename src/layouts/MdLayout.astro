@@ -1,15 +1,16 @@
 ---
+import { AstroSeo } from "@astrolib/seo";
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout title={frontmatter.title} >
-  <div class="flex-col justify-center mx-auto max-w-7xl gap-6 py-5 px-2 text-sm font-light">
-    <div class="bg-gray-100 dark:bg-gray-900 rounded-2xl">
-      <div class="cust-markdown p-6 prose dark:prose-invert prose-img:rounded-lg">
-        <slot />
-      </div>
-    </div>
+<AstroSeo
+  title={frontmatter.title}
+  description={frontmatter.description}
+/>
+<BaseLayout>
+  <div class="cust-markdown mx-auto max-w-7xl m-4 p-4 prose sm:prose-sm lg:prose-lg xl:prose-xl dark:prose-invert prose-img:rounded-lg bg-gray-100 dark:bg-gray-900 rounded-2xl">
+    <slot />
   </div>
 </BaseLayout>
 
