@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-import aws from "astro-sst/lambda";
+import aws from "astro-sst";
 import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
