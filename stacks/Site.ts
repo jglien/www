@@ -11,6 +11,11 @@ export default function Site({ app, stack }: StackContext) {
   }
 
   const site = new AstroSite(stack, "site", {
+    nodejs: {
+      esbuild: {
+        target: "node20",
+      },
+    },
     customDomain: {
       domainName,
       hostedZone: johnDomain,
