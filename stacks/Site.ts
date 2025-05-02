@@ -1,4 +1,4 @@
-import { AstroSite, StackContext } from "sst/constructs";
+import { AstroSite, type StackContext } from "sst/constructs";
 import { ResponseHeadersPolicy } from "aws-cdk-lib/aws-cloudfront";
 
 export default function Site({ app, stack }: StackContext) {
@@ -11,11 +11,7 @@ export default function Site({ app, stack }: StackContext) {
   }
 
   const site = new AstroSite(stack, "site", {
-    nodejs: {
-      esbuild: {
-        target: "node20",
-      },
-    },
+    runtime: "nodejs20.x",
     customDomain: {
       domainName,
       hostedZone: johnDomain,
