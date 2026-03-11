@@ -1,10 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Arimo Nerd Font", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
 
 @layer base {
   @font-face {
     font-family: "Arimo Nerd Font";
     src: url(/fonts/ArimoNerdFont-Regular.ttf);
+  }
+}
+
+@layer base {
+  .prose code::before,
+  .prose code::after {
+    content: none;
   }
 }

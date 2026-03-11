@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const posts = await Astro.glob("./posts/*.{md,mdx}");
+const postModules = import.meta.glob("./posts/*.{md,mdx}", { eager: true });
+const posts = Object.values(postModules);
 ---
 
 <BaseLayout title="John G Lien | Blog" >
