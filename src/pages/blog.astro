@@ -1,14 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { sortPostsByDate } from "../utils/posts";
 const postModules = import.meta.glob("./posts/*.{md,mdx}", { eager: true });
-const posts = Object.values(postModules);
+const posts = sortPostsByDate(Object.values(postModules));
 ---
 
 <BaseLayout title="John G Lien | Blog" >
   <section>
         <div class="flex flex-col mx-auto max-w-xl gap-2 p-4 text-sm font-light">
           {
-            posts.sort((a, b) => b.frontmatter.date > a.frontmatter.date ? 1 : -1).map((p) => (
+            posts.map((p) => (
               <div class="items-center text-neutral-500">
                 <p class="text-black dark:text-white">{p.frontmatter.title}</p>
                 <p class="text-neutral-400 dark:text-neutral-400">{p.frontmatter.date.split("T")[0]}</p>
