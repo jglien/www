@@ -14,12 +14,12 @@
     "deploy:sync": "aws s3 sync dist/client s3://$(cd infra && tofu output -raw s3_bucket) --delete"
   },
   "dependencies": {
+    "@astro-aws/adapter": "^0.13.0",
     "@astrojs/sitemap": "^3.7.1",
     "@astrojs/tailwind": "^6.0.2",
     "@astrolib/seo": "^0.6.0",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^6.0.2",
-    "astro-sst": "^3.1.4",
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {

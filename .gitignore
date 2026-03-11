@@ -25,3 +25,10 @@ tmp/
 .sst/
 .build/
 cdk.context.json
+
+# OpenTofu files
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars

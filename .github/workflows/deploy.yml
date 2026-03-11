@@ -6,27 +6,41 @@ on:
       - main
 concurrency: prod
 
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
-      packages: read
-      actions: write
+      contents: read
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
           version: 8
-      - uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 24
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - uses: aws-actions/configure-aws-credentials@v2
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{ secrets.AWS_REGION }}
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT }}:role/gh-actions
           role-session-name: JohnWww_${{ github.run_id }}_${{ github.run_attempt }}
-      - run: pnpm sst deploy --stage 'prod'
+      - name: Setup OpenTofu
+        uses: opentofu/setup-opentofu@v1
+      - name: Build
+        run: pnpm build
+      - name: Initialize OpenTofu
+        run: tofu -chdir=infra init
+      - name: Apply infrastructure
+        run: tofu -chdir=infra apply -auto-approve -var="aws_region=${{ secrets.AWS_REGION }}"
+      - name: Sync static assets to S3
+        run: aws s3 sync dist/client s3://$(tofu -chdir=infra output -raw s3_bucket) --delete
+      - name: Invalidate CloudFront cache
+        run: aws cloudfront create-invalidation --distribution-id $(tofu -chdir=infra output -raw cloudfront_distribution_id) --paths "/*"
