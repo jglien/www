@@ -3,34 +3,35 @@
   "type": "module",
   "version": "0.0.2",
   "scripts": {
-    "dev": "sst bind astro dev",
-    "start": "astro dev",
+    "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "husky install",
-    "lint": "eslint src stacks",
-    "lint-fix": "eslint --fix src stacks"
+    "test": "vitest run",
+    "lint": "eslint src",
+    "lint-fix": "eslint --fix src",
+    "deploy": "pnpm build && cd infra && tofu apply -auto-approve",
+    "deploy:sync": "aws s3 sync dist/client s3://$(cd infra && tofu output -raw s3_bucket) --delete"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.6.0",
+    "@astro-aws/adapter": "^0.13.0",
+    "@astrojs/sitemap": "^3.7.1",
     "@astrojs/tailwind": "^6.0.2",
     "@astrolib/seo": "^0.6.0",
-    "astro": "^5.13.7",
-    "astro-sst": "^2.45.2",
-    "tailwindcss": "^3.0.24"
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^6.0.2",
+    "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.16",
-    "@typescript-eslint/eslint-plugin": "^8.31.1",
-    "@typescript-eslint/parser": "^8.31.1",
-    "aws-cdk-lib": "2.201.0",
-    "constructs": "10.3.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-astro": "^1.3.1",
-    "sst": "^2.49.6",
-    "husky": "^8.0.0",
-    "typescript": "^5.8.3"
+    "@tailwindcss/typography": "^0.5.19",
+    "@typescript-eslint/eslint-plugin": "^8.57.0",
+    "@typescript-eslint/parser": "^8.57.0",
+    "eslint": "^10.0.3",
+    "eslint-plugin-astro": "^1.6.0",
+    "husky": "^9.1.7",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   },
-  "packageManager": "pnpm@8.6.11"
+  "packageManager": "pnpm@10.32.1+sha512.a706938f0e89ac1456b6563eab4edf1d1faf3368d1191fc5c59790e96dc918e4456ab2e67d613de1043d2e8c81f87303e6b40d4ffeca9df15ef1ad567348f2be"
 }

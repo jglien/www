@@ -1,18 +1,20 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const posts = await Astro.glob("./posts/*.{md,mdx}");
+import { sortPostsByDate } from "../utils/posts";
+const postModules = import.meta.glob("./posts/*.{md,mdx}", { eager: true });
+const posts = sortPostsByDate(Object.values(postModules));
 ---
 
 <BaseLayout title="John G Lien | Blog" >
   <section>
-        <div class="flex flex-col mx-auto max-w-xl gap-2 p-4 text-sm font-light">
+        <div class="flex flex-col mx-auto max-w-xl divide-y divide-neutral-200 dark:divide-neutral-800 p-4 text-sm font-light">
           {
-            posts.sort((a, b) => b.frontmatter.date > a.frontmatter.date ? 1 : -1).map((p) => (
-              <div class="items-center text-neutral-500">
+            posts.map((p) => (
+              <div class="items-center text-neutral-500 pt-2">
                 <p class="text-black dark:text-white">{p.frontmatter.title}</p>
                 <p class="text-neutral-400 dark:text-neutral-400">{p.frontmatter.date.split("T")[0]}</p>
                 <p class="text-neutral-400 dark:text-neutral-400">{p.frontmatter.description}</p>
-                <a href={p.url} class="text-xs underline hover:no-underline duration-200">Read more</a>
+                <a href={p.url} class="text-xs underline hover:no-underline duration-200 mb-2 block">Read more</a>
                 <p class="text-neutral-400 dark:text-neutral-400">{p.content}</p>
               </div>
             ))
