@@ -22,10 +22,6 @@ pnpm-debug.log*
 
 tmp/
 
-.sst/
-.build/
-cdk.context.json
-
 # OpenTofu files
 .terraform/
 .terraform.lock.hcl
